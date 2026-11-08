@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Caderneta — Controle de Fiado</title>
+  <meta name="description" content="Controle de vendas fiado para pequenos comércios: clientes, compras, pagamentos, vencimentos e relatório mensal.">
+
+  <!-- PWA: permite instalar o app no Android e no iOS (app híbrido) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0F766E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Caderneta">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Tipografia (Inter). Se estiver sem internet, usa a fonte do sistema. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Barra superior -->
+    <header id="topo" class="topo" hidden>
+      <button id="btn-voltar" class="btn-icone" aria-label="Voltar" hidden>
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <img id="topo-logo" class="topo-logo" alt="" hidden>
+      <h1 id="titulo" class="topo-titulo">Caderneta</h1>
+      <button id="btn-atualizar" class="btn-icone" aria-label="Atualizar dados" title="Atualizar dados">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </header>
+
+    <!-- Conteúdo da tela atual (preenchido pelo app.js) -->
+    <main id="conteudo" class="conteudo" tabindex="-1"></main>
+
+    <!-- Navegação inferior -->
+    <nav id="nav" class="nav" hidden aria-label="Navegação principal"></nav>
+  </div>
+
+  <!-- Camadas de feedback -->
+  <div id="carregando" class="carregando" hidden><div class="spinner" role="status" aria-label="Carregando"></div></div>
+  <div id="modal" class="modal-fundo" hidden></div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
